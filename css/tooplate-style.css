@@ -479,11 +479,15 @@ http://www.tooplate.com/view/2098-health
   -----------------------------------------*/
 
   #about {
-    background: url('../images/about-bg.jpg') no-repeat top center;
-    background-size: cover;
+    background: url('../images/thisisengineering-raeng-ATeFbve78Zo-unsplash.jpg') no-repeat top center;
+    background-size: 100%;
     padding-top: 150px;
     padding-bottom: 150px;
+    background-attachment: fixed;
+    background-position: center center;
+    
   }
+
 
   .profile img,
   .profile figcaption {
@@ -573,6 +577,18 @@ http://www.tooplate.com/view/2098-health
     top: -22em;
   }
 
+  .ingenieros{   
+    width: 100%;
+    height: 400px;
+  }
+  .ImagenCita{
+  padding-bottom: 100px;
+  }
+  
+  .AboutP{
+    color: #ffffff;
+
+  }
 
 
   /*---------------------------------------

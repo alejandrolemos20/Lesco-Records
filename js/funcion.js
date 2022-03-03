@@ -16,6 +16,7 @@ function calculadora() {
             alert("Hola!\nTu sesión cuesta: $" + moneda);
 
             document.getElementById("Resultado").innerHTML = "$"+ moneda
+            document.getElementById("Horas").innerHTML = Horas
         } else {
             console.error("Error: ¡Ambos valores ingresados deben ser numéricos!")
         }
