@@ -6,18 +6,24 @@ const produccion= 90000
 const servicios = ['Mezcla', 'Masterización', "Grabación", "Producción"]
 
 function calculadora() {
+    const dia =prompt ("Ingresa el día de tu reserva")
+    const mes =prompt ("Ingresa el número correspondiente al mes de tu reserva (Enero = 0 Diciembre = 11 ")
+    const año =prompt ("Ingresa el año de tu reserva")
     let Horas = prompt("Ingresa el número de horas que necesitas el estudio :")
     let operador = prompt("Tipo de operación a realizar: \n Mezcla = 1 \n Masterización = 2 \n Grabación = 3 \n Producción Musical = 4")
         if (!isNaN(Horas) && !isNaN(operador)) {
             let resultado =  obtenerCalculo(Horas, operador)
             let moneda = (new Intl.NumberFormat().format(resultado))
+            const fecha = (new Date (año, mes, dia))
             console.log(moneda)
             console.log("El resultado del cálculo, es:", resultado)
             console.log(typeof resultado);
             alert("Hola!\nTu sesión cuesta: $" + moneda);
+            console.log (new Date (año, mes, dia))
             agregarServicio ()
             document.getElementById("Resultado").innerHTML = "$"+ moneda
             document.getElementById("Horas").innerHTML = Horas
+            document.getElementById("Fecha").innerHTML = fecha
         } else {
             console.error("Error: ¡Ambos valores ingresados deben ser numéricos!")
         }
@@ -47,10 +53,14 @@ function agregarServicio() {
         switch (servicioadicional) {
             case "1":
                 const nuevoServicio = prompt("Ingrese el servicio que desea agregar:")
+                const buscar = servicios.some (element => element === nuevoServicio)
+                const buscar2 = servicios.find (element => element === nuevoServicio)
                 const resultadoServicio = servicios.includes(nuevoServicio)
                 if (resultadoServicio) {
                     alert("El Servicio ingresado " + nuevoServicio + " ya existe en el array.");
                     console.warn("El Servicio ingresado", nuevoServicio, "ya existe en el array.")
+                    console.log (buscar)
+                    console.log (buscar2)
                     agregarServicio ()
                     
                 }
