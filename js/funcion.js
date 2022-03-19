@@ -4,6 +4,76 @@ const grabacion= 80000
 const produccion= 90000
 
 const servicios = ['Mezcla', 'Masterización', "Grabación", "Producción"]
+const carrito= []
+
+const listadoservicios = document.getElementById ("listadoservicios")
+const listadocarrito = document.getElementById ("listadocarrito")
+
+const totalGrabacion = document.getElementById("totalGrabacion")
+const HorasReserva = document.getElementById ("HorasReserva")
+const fechaReserva = document.getElementById ("fechaReserva")
+
+
+const btnCotiza = document.querySelector("#CotizaBtn")
+const mis_servicios = document.querySelector ("ul")
+
+//cargamos el array de servicios
+
+const cargarServicios =() => {
+    debugger
+    for (servicio of servicios){
+        const liServicio=document.createElement ("li") 
+            liServicio.className = "mis_servicios"
+            liServicio.innerText = servicio //innexText para modificiar texto
+            liServicio.setAttribute("onclick", `agregarAlCarrito('${servicio}')`)
+            //liServicio.addEventListener ("click", ()=> {
+            //    agregarAlCarrito(servicio) por qué este no agregaba los servicios que son?
+            //})
+            
+            listadoservicios.append (liServicio) //append para agregar al array
+            liServicio.addEventListener("mousemove", cursor) //evento mousemove para cambiar a manito
+            //liServicio.addEventListener ("click", agregarAlCarrito(servicio)) esto se podrá?
+    }
+}
+
+//agregar al carrito
+const agregarAlCarrito = (serv) => { 
+    
+    if (serv > "") {
+        const id = serv + "enCarrito" //ID aquí se asigna
+        const liCarrito = document.createElement("li")
+        liCarrito.innerText = serv
+        liCarrito.id = id //ID dinámico
+        liCarrito.setAttribute("ondblclick", `eliminarDelCarrito('${id}')`)
+        listadocarrito.append(liCarrito)
+    }
+}
+//Para crear la opción de eliminar del carrito, debemos generar un ID dinámico
+//al momento de crear un <li> por cada producto agregado al Carrito.
+const eliminarDelCarrito = (productoID) => { //Usen el DEBUGGER para seguir el código paso a paso
+    if (confirm("¿Desea eliminar el producto del carrito?")) {
+        const itemAeliminar = document.getElementById(productoID)
+        itemAeliminar.remove()
+        return
+    }
+}
+
+cargarServicios()
+//creación evento boton cotiza
+
+btnCotiza.addEventListener("click", ()=> {
+    calculadora()
+    
+    
+})
+
+
+
+function cursor() {
+    document.getElementById("listadoservicios").style.cursor = "pointer";
+}
+
+
 
 function calculadora() {
     const dia =prompt ("Ingresa el día de tu reserva")
@@ -21,8 +91,14 @@ function calculadora() {
             alert("Hola!\nTu sesión cuesta: $" + moneda);
             console.log (new Date (año, mes, dia))
             agregarServicio ()
+
+            totalGrabacion.innerText = "El total de la grabación es:"
             document.getElementById("Resultado").innerHTML = "$"+ moneda
+            
+            HorasReserva.innerText = "Número de horas a reservar:"
             document.getElementById("Horas").innerHTML = Horas
+            
+            fechaReserva.innerText = "Fecha de la Reserva:"
             document.getElementById("Fecha").innerHTML = fecha
         } else {
             console.error("Error: ¡Ambos valores ingresados deben ser numéricos!")
