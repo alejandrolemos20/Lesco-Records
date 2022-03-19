@@ -25,6 +25,17 @@ http://www.tooplate.com/view/2098-health
 
      <!-- MAIN CSS -->
      <link rel="stylesheet" href="css/tooplate-style.css">
+
+     <!-- SCRIPTS -->
+     <script defer src="js/jquery.js"></script>
+     <script defer src="js/bootstrap.min.js"></script>
+     <script defer src="js/jquery.sticky.js"></script>
+     <script defer src="js/jquery.stellar.min.js"></script>
+     <script defer src="js/wow.min.js"></script>
+     <script defer src="js/smoothscroll.js"></script>
+     <script defer src="js/owl.carousel.min.js"></script>
+     <script defer src="js/custom.js"></script>
+     <script defer src="js/funcion.js"></script>
      
 
 </head>
@@ -104,7 +115,7 @@ http://www.tooplate.com/view/2098-health
                                         <div class="col-md-offset-1 col-md-10">
                                              <h3>Lleva tu Proyecto a otro nivel</h3>
                                              <h1>Cotiza tu Alquiler!</h1>
-                                             <a href="javascript:calculadora()" class="section-btn btn btn-default btn-blue smoothScroll">Cotiza Ahora</a>
+                                             <a class="section-btn btn btn-default btn-blue smoothScroll" id="CotizaBtn">Cotiza Ahora</a>
                                         </div>
                                    </div>
                               </div>
@@ -275,13 +286,16 @@ http://www.tooplate.com/view/2098-health
                                    </div>
 
                                    <div class="col-md-6 col-sm-6">
-                                        <label for="select">Selecciona tu requerimiento</label>
+                                        <h3>Nuestros Servicios</h3>
+                                        <ul id="listadoservicios">  
+                                        </ul>
+                                        <!-- <label for="select">Selecciona tu requerimiento</label>
                                         <select class="form-control">
                                              <option>Grabación</option>
                                              <option>Producción</option>
                                              <option>Mezcla</option>
                                              <option>Masterización</option>
-                                        </select>
+                                        </select> -->
                                    </div>
 
                                    <div class="col-md-12 col-sm-12">
@@ -289,11 +303,20 @@ http://www.tooplate.com/view/2098-health
                                         <input type="tel" class="form-control" id="phone" name="phone" placeholder="Telefono">
                                         <label for="Message">Comentarios adicionales</label>
                                         <textarea class="form-control" rows="5" id="message" name="message" placeholder="Mensajes adicionales"></textarea>
-                                        <p>El total de la grabación es:</p>
+                                        
+                                        <!-- //JS -->
+                                        <div class="col-md-6 col-sm-6">
+                                             <h3>Servicios cotizados</h3>
+                                             <ul id="listadocarrito">     
+                                             </ul>
+                                        </div>
+                                        
+
+                                        <p id="totalGrabacion"></p>
                                         <p id="Resultado"></p>
-                                        <p>Número de horas a reservar:</p>
+                                        <p id="HorasReserva"></p>
                                         <p id="Horas"></p>
-                                        <p>Fecha de la Reserva:</p>
+                                        <p id="fechaReserva"></p>
                                         <p id="Fecha"></p>
                                         <button type="submit" class="form-control" id="cf-submit" name="submit">RESERVAR</button>
                                    </div>
@@ -388,16 +411,7 @@ http://www.tooplate.com/view/2098-health
           </div>
      </footer>
 
-     <!-- SCRIPTS -->
-     <script src="js/jquery.js"></script>
-     <script src="js/bootstrap.min.js"></script>
-     <script src="js/jquery.sticky.js"></script>
-     <script src="js/jquery.stellar.min.js"></script>
-     <script src="js/wow.min.js"></script>
-     <script src="js/smoothscroll.js"></script>
-     <script src="js/owl.carousel.min.js"></script>
-     <script src="js/custom.js"></script>
-     <script src="js/funcion.js"></script>
+     
      
 
 </body>
