@@ -20,7 +20,7 @@ const mis_servicios = document.querySelector ("ul")
 //cargamos el array de servicios
 
 const cargarServicios =() => {
-    debugger
+    
     for (servicio of servicios){
         const liServicio=document.createElement ("li") 
             liServicio.className = "mis_servicios"
