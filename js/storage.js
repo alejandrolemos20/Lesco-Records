@@ -19,11 +19,11 @@ const recorrerLS = ()=> {
 }
 
 //si quiero limpiar LocalStorage por completo
-const limpiarLS = ()=> {
+/* const limpiarLS = ()=> {
     const resp = confirm("¿Realmente desea eliminar todo lo almacenado en LocalStorage?")
     if (resp)
         localStorage.clear()
     console.warn("Se han eliminado todos los elementos de LocalStorage.")
-}
+} */
 
 recuperoDatos()
