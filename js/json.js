@@ -1,4 +1,9 @@
 const guardoDatosJSON = () => {
+    Swal.fire({
+        title: "Servicio agregado al carrito",
+        icon: 'success'
+
+    })
     datosFormulario = { producto: producto.value.trim(), hora: parseInt(hora.value), fecha: (fecha.value) }
     cursos.push(datosFormulario)
     localStorage.setItem("listadoDeCursos", JSON.stringify(cursos))
@@ -40,10 +45,33 @@ const buscarCurso = () => {
         }
     }
 }
-const limpiarLS = ()=> {
+btnLimpiar.addEventListener("click", ()=> {
+    Swal.fire({
+        title: "Vas a eliminar los productos de tu carrito ¿Quieres continuar?",
+        icon: 'warning',
+        showCancelButton: true,
+        /* confirmButtonText: "Si",
+        cancelButtonText: "No!" */
+        confirmButtonText:
+            '<i class="fa fa-thumbs-up"></i> SI!',
+        confirmButtonAriaLabel: 'Thumbs up, great!',
+        cancelButtonText:
+            '<i class="fa fa-thumbs-down"></i> NO!',
+        cancelButtonAriaLabel: 'Thumbs down'
+    }).then((result)=> {
+        result.isConfirmed ?
+        localStorage.clear() :
+        producto.focus()
+    })
+    
+        
+    
+
+})
+/* const limpiarLS = ()=> {
     const resp = confirm("¿Realmente desea eliminar todo lo almacenado en LocalStorage?")
     if (resp)
         localStorage.clear()
     console.warn("Se han eliminado todos los elementos de LocalStorage.")
 }
-btnLimpiar.addEventListener("click", () => limpiarLS())
+btnLimpiar.addEventListener("click", () => limpiarLS()) */
