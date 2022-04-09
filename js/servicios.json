@@ -1,0 +1,18 @@
+[
+	{
+		"servicio": "Mezcla",
+		"costohora": 60000
+	},
+	{
+		"servicio":"Masterización",
+		"costohora": 70000
+	},
+    {
+		"servicio": "Producción",
+		"costohora": 80000
+	},
+	{
+		"servicio":"Grabación",
+		"costohora": 100000
+	}
+]
