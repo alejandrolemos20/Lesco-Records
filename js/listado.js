@@ -9,9 +9,9 @@ const cargoArrayDeCursos = () => {
         //y lo cargo en la tabla
         for (curso of cursos) {
             lista += `<tr>
-                          <td class="textleft">${curso.producto}</th>
-                          <td class="text-right">${curso.hora}</th>
-                          <td class="text-right">${curso.fecha}</th>
+                          <td class="textleft">${curso.producto}</td>
+                          <td class="text-right">${curso.hora}</td>
+                          <td class="text-right">${curso.fecha}</td>
                       </tr>`
         }
         tablaListado.innerHTML = lista
