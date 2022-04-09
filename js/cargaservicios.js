@@ -23,10 +23,3 @@ const cargarServiciosTabla = () => {
 }
 
 document.addEventListener("DOMContentLoaded", obtenerDatos)
-
-// BONUS TRACK: MISMA VERSION, PERO ASINCRÓNICA
-// const obtenerDatosAsync = async ()=> {
-//       const respuesta = fetch(URL)
-//       const arrayContactos = await respuesta.json()
-//             cargoGrillaContactos()
-// }

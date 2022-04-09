@@ -9,4 +9,4 @@ let cursos = []
 let arrayServicios = ""
 //json
 
-const URL = `${window.location.origin}/js/servicios.json`
+const URL = "servicios.json"
