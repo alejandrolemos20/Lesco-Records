@@ -23,3 +23,4 @@ const cargarServiciosTabla = () => {
 }
 
 document.addEventListener("DOMContentLoaded", obtenerDatos)
+
