@@ -288,11 +288,16 @@ http://www.tooplate.com/view/2098-health
                                    <ul id="listadoservicios">
                                    </ul>
                               </div>
-                              
                               <div class="col-md-12 col-sm-12">
                                    <label for="producto">Servicio</label>
-                                   <input type="text"  class="form-control" id="producto" placeholder="Descripción del producto" tabindex="1" required>
+                                   <select name="SelectServicios" id="SelectServicios" class="form-control" required> 
+                                        <option value="Mezcla">Mezcla</option>
+                                        <option value="Masterización">Masterización</option>
+                                        <option value="Producción">Producción</option>
+                                        <option value="Grabación">Grabación</option>
+                                   </select>
                               </div>
+
                               <div class="col-md-12 col-sm-12">
                                    <label for="precio">Horas</label>
                                    <input type="number"  class="form-control" id="hora" placeholder="Importe unitario" tabindex="2" required>
