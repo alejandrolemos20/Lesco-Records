@@ -1,5 +1,6 @@
 let lista = ""
 const tablaListado = document.querySelector("#listado")
+const total = document.getElementById("total");
 
 const cargoArrayDeCursos = () => {
     //debugger
@@ -13,11 +14,16 @@ const cargoArrayDeCursos = () => {
                           <td class="textleft">${curso.producto}</td>
                           <td class="text-right">${curso.hora}</td>
                           <td class="text-right">${curso.fecha}</td>
+                          <td class="text-right">${curso.precio}</td>
                       </tr>
                       `
         }
         tablaListado.innerHTML = lista
     }
+    
+    let totalAPagar = cursos.reduce((acu,curso)=>{ return acu + curso.precio * curso.hora},0);
+        console.log(totalAPagar)    
+    total.innerHTML = '$'+totalAPagar;
 }
 
 cargoArrayDeCursos()

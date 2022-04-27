@@ -1,64 +1,47 @@
+const valorSelect = document.getElementById("SelectServicios")
+const hora = document.querySelector("#hora")
+const fecha = document.querySelector("#fecha")
+
 const guardoDatosJSON = () => {
-    
+    valor = valorSelect.value//obtener valor del input    
+    let product = valor.trim();
+    let hour = parseInt(hora.value);
+    let date = (fecha.value);    
     Swal.fire({
         title: "Servicio agregado al carrito",
         icon: 'success'
 
-    })
-    valor = valorSelect.value//obtener valor del input
-    console.log(valor)
+    })    
     
-    datosFormulario = { producto: valor.trim(), hora: parseInt(hora.value), fecha: (fecha.value) }
-    cursos.push(datosFormulario)
-    localStorage.setItem("listadoDeCursos", JSON.stringify(cursos))
-    console.info("Se ha almacenado el curso en LocalStorage.")
-    ()
-    limpioCampos()
-    
-    fetch(URL)
-    
-        .then(response =>
-            response.json()
+    fetch(URL)    
+    .then(response =>
+        response.json()
         )
         .then(data => {
-            console.log(data)
-            console.log(cursos)
-            switch (curso.producto) {
-                case 'Mezcla':
-                    console.info("hi")
-                    const TotalMezcla= parseInt(curso.hora)*60000
-                    console.log(TotalMezcla)
-                case 'Masterización':
-                    console.info ("master")
-                    const TotalMaster= parseInt(curso.hora)*70000
-                    console.log(TotalMaster)
+            console.log("data",data);
+            console.log("cursos",cursos);
+            data.forEach((el)=>{
 
-                case 'Producción':
-                    console.info ("producción")
-                    const TotalProd= parseInt(curso.hora)*80000
-                    console.log(TotalProd)
+                console.table(product,el.servicio);
 
-                case 'Grabación':
-                    console.info ("grabación")
-                    const TotalGrab= parseInt(curso.hora)*100000
-                    console.log(TotalGrab)
-                    
-            
-                default:
-                    break;
+                if(el.servicio == product){
+                    let precio = el.costohora;
+                    datosFormulario = { producto:product , hora: hour, fecha: date, precio:precio  }
+                    cursos.push(datosFormulario)
+                    localStorage.setItem("listadoDeCursos", JSON.stringify(cursos))
+                    console.info("Se ha almacenado el curso en LocalStorage.")
+                    limpioCampos()
+                } 
             }
+            )            
             
         })
-    
-
-    
-    
 }
 
 btnGuardar.addEventListener("click", () => guardoDatosJSON())
 
 const limpioCampos = () => {
-    producto.value = ""
+    valorSelect.value = ""
     hora.value = 0
     fecha.value = 0
 }
